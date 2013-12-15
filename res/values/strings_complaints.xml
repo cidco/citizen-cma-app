@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="label_complaint_title">Complaint Title</string>
+    <string name="hint_complaint_title">Dog Menace</string>
+    <string name="hint_complaint_details">Max 400 Charaters</string>
+    <string name="content_desc_complaint_photo">Photo for upload</string>
+    <string name="button_upload_photo">Upload Photo</string>
+    <string name="action_camera">Upload Photo</string>
+    
+    <string-array name="category_array">
+        <item>General</item>
+        <item>Health</item>
+        <item>Engineering</item>
+        <item>Revenue</item>
+        <item>Solid Waste Management</item>
+        <item>Others</item>
+    </string-array>
+
+</resources>

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <org.holoeverywhere.widget.TextView
+        android:id="@+id/textview_complaint_title_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_margin="8dp"
+        android:text="@string/label_complaint_title"
+        android:textAppearance="@style/Holo.TextAppearance.Medium.Light"
+        android:textStyle="bold" />
+
+    <org.holoeverywhere.widget.TextView
+        android:id="@+id/textview_complaint_title_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_margin="8dp"
+        android:layout_toRightOf="@id/textview_complaint_title_text"
+        android:ellipsize="end"
+        android:hint="@string/hint_complaint_title"
+        android:maxLines="2"
+        android:textAppearance="@style/Holo.TextAppearance.Medium.Light"
+        android:textStyle="bold" />
+
+    <org.holoeverywhere.widget.EditText
+        android:id="@+id/edittext_complaint_details_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textview_complaint_title_text"
+        android:layout_margin="8dp"
+        android:background="@drawable/bg_complaint_details"
+        android:gravity="top"
+        android:hint="@string/hint_complaint_details"
+        android:imeOptions="actionNext"
+        android:inputType="textNoSuggestions"
+        android:maxLength="400"
+        android:maxLines="4"
+        android:minHeight="100dp"
+        android:minLines="3"
+        android:padding="5dp" />
+
+    <RelativeLayout
+        android:id="@+id/layout_complaint_details_photo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@id/edittext_complaint_details_text"
+        android:layout_margin="10dp"
+        android:minHeight="?android:attr/listPreferredItemHeight"
+        android:visibility="visible" >
+
+        <ImageView
+            android:id="@+id/imageview_complaint_thumb"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_alignParentLeft="true"
+            android:contentDescription="@string/content_desc_complaint_photo"
+            android:src="@android:drawable/ic_menu_gallery" />
+
+        <org.holoeverywhere.widget.TextView
+            android:id="@+id/textview_complaint_image_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_margin="8dp"
+            android:layout_toRightOf="@id/imageview_complaint_thumb"
+            android:textAppearance="@style/Holo.TextAppearance.Medium.Light"
+            android:textStyle="bold" />
+    </RelativeLayout>
+
+</RelativeLayout>

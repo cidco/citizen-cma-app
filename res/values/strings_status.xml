@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="label_complaint_number">Complaint Number</string>
+    <string name="hint_complaint_number">Eg. 1234567890</string>
+    <string name="hint_complaint_status">Status : RESOLVED</string>
+    <string name="button_get_status">Get Status</string>
+    <string name="content_desc_get_status">Get Status</string>
+    <string name="error_field_required">This field is required</string>
+
+</resources>

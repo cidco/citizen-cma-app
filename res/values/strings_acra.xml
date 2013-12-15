@@ -1,0 +1,15 @@
+<resources>
+
+    <!-- ACRA Constants -->
+    <string name="crash_toast_text">Awe!! Sorry, the application crashed.</string>
+    <string name="crash_notif_ticker_text">Unexpected error, please send a report.</string>
+    <string name="crash_notif_title">PGRS App crashed :( </string>
+    <string name="crash_notif_text">Please click here to help fix the issue.</string>
+    <string name="crash_dialog_title">PGRS Application has crashed</string>
+    <string name="crash_dialog_text">An unexpected error occurred forcing the
+    PGRS App to stop. Please help the dev team fix this by sending error details.
+    Click OK to continue.</string>
+    <string name="crash_dialog_comment_prompt">You might add your comments about the problem below: (Optional)</string>
+    <string name="crash_dialog_ok_toast">Thank you. Select Email application to send the logs!</string>
+
+</resources>

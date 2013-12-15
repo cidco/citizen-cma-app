@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:background="@drawable/slidingmenu_selector"
+    android:layout_height="wrap_content" >
+
+    <org.holoeverywhere.widget.TextView
+        android:id="@+id/text_slidingmenu_cell_label"
+        android:layout_width="wrap_content"
+        android:textStyle="bold"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:paddingLeft="@dimen/abs__dropdownitem_text_padding_left"
+        android:layout_height="?android:attr/listPreferredItemHeight"
+        android:gravity="center_vertical"
+ />
+
+
+</RelativeLayout>
