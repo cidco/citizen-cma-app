@@ -38,3 +38,15 @@ online Grievance Dashboard - Online System & Mobile App
 CMA Dashboard Analytics - Tablets
 
 Senior officials to track the relevant municipals/corporation based on Grievance analysis report data from the online system
+
+
+Android App for Public Grievance & Redressal System
+- Supports 2.2 and above
+- Sherlock Navigation drawer, Holo Everywhere, Crouton, ACRA and ViewPagerIndicator libraries are used
+- Functionalities are not complete. Base Framework needs more modifications.
+- Adapter used for selecting Category Types needs to be tuned not to create different instances of Adapter.
+
+Known Issues:
+- Updating Action Bar menu icons from Child Fragment is not working
+- Radio Buton for Category Type activates on all rows
+- And, more.... :)
