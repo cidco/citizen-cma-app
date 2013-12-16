@@ -27,5 +27,12 @@ public interface PgrsConstants {
 	
 	String INTENT_PARAM_COMPLAINT_NUMBER = "comp_no";
 	String INTENT_PARAM_COMPLAINT_NUMBER_LIST = "comp_no_list";
+	
+	String DIRECTORY_CAMERA_IMAGE = "PGRS";
+	String PREFIX_IMAGE = "img";
+	String SUFFIX_JPG_FILE_EXTENSION = ".jpg";
+	String INTENT_TITLE_PICK_PHOTOS = "Select Source";
+	
+	int REQUEST_CODE_PICK_PICTURES_FOR_COMPLAINTS = 1;
 
 }

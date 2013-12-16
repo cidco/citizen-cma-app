@@ -10,7 +10,8 @@
         android:layout_alignParentTop="true"
         android:layout_margin="8dp"
         android:text="@string/label_complaint_title"
-        android:textAppearance="@style/Holo.TextAppearance.Medium.Light"
+        android:textAppearance="@style/Holo.TextAppearance.Large.Light"
+        android:textColor="@color/holo_blue_light"
         android:textStyle="bold" />
 
     <org.holoeverywhere.widget.TextView
@@ -21,10 +22,10 @@
         android:layout_margin="8dp"
         android:layout_toRightOf="@id/textview_complaint_title_text"
         android:ellipsize="end"
-        android:hint="@string/hint_complaint_title"
+        android:text="@string/hint_complaint_title"
         android:maxLines="2"
         android:textAppearance="@style/Holo.TextAppearance.Medium.Light"
-        android:textStyle="bold" />
+        android:textStyle="normal" />
 
     <org.holoeverywhere.widget.EditText
         android:id="@+id/edittext_complaint_details_text"
@@ -43,12 +44,23 @@
         android:minLines="3"
         android:padding="5dp" />
 
+    <org.holoeverywhere.widget.TextView
+        android:id="@+id/textview_complaint_photo_header"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/edittext_complaint_details_text"
+        android:layout_margin="8dp"
+        android:layout_marginTop="10dp"
+        android:text="Upload Photo"
+        android:textAppearance="@style/Holo.TextAppearance.Medium.Light"
+        android:textStyle="bold" />
+
     <RelativeLayout
         android:id="@+id/layout_complaint_details_photo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
-        android:layout_below="@id/edittext_complaint_details_text"
+        android:layout_below="@id/textview_complaint_photo_header"
         android:layout_margin="10dp"
         android:minHeight="?android:attr/listPreferredItemHeight"
         android:visibility="visible" >
@@ -59,7 +71,7 @@
             android:layout_height="100dp"
             android:layout_alignParentLeft="true"
             android:contentDescription="@string/content_desc_complaint_photo"
-            android:src="@android:drawable/ic_menu_gallery" />
+            android:src="@drawable/ic_action_content_picture" />
 
         <org.holoeverywhere.widget.TextView
             android:id="@+id/textview_complaint_image_name"
@@ -68,6 +80,7 @@
             android:layout_centerVertical="true"
             android:layout_margin="8dp"
             android:layout_toRightOf="@id/imageview_complaint_thumb"
+            android:text="IMG_201312151413345.JPG"
             android:textAppearance="@style/Holo.TextAppearance.Medium.Light"
             android:textStyle="bold" />
     </RelativeLayout>

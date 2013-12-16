@@ -4,7 +4,6 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import com.actionbarsherlock.app.SherlockFragment;
 import com.actionbarsherlock.view.Menu;
@@ -16,24 +15,26 @@ import de.keyboardsurfer.android.widget.crouton.Crouton;
 import de.keyboardsurfer.android.widget.crouton.Style;
 
 public class ComplaintLocationFragment extends SherlockFragment {
-	
+
+	private View locationView = null;
+
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setHasOptionsMenu(true);
 	}
-	
+
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
-		TextView tx = new TextView(getActivity());
-		tx.setText("Location");
-		return tx;
-		
+
+		locationView = inflater.inflate(R.layout.fragment_complaint_location,
+				container, false);
+		return locationView;
+
 	}
-	
-	public static ComplaintLocationFragment newInstance()
-	{
+
+	public static ComplaintLocationFragment newInstance() {
 		ComplaintLocationFragment fragment = new ComplaintLocationFragment();
 		return fragment;
 	}
@@ -49,7 +50,7 @@ public class ComplaintLocationFragment extends SherlockFragment {
 			Crouton.showText(getActivity(), "About", Style.INFO);
 			return true;
 		}
-		
+
 		if (item.getItemId() == R.id.action_licenses) {
 			Crouton.showText(getActivity(), "Licenses", Style.INFO);
 			return true;

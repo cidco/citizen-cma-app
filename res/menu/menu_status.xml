@@ -2,7 +2,7 @@
 
     <item
         android:id="@+id/action_register"
-        android:icon="@android:drawable/ic_menu_add"
+        android:icon="@drawable/ic_action_content_edit"
         android:orderInCategory="100"
         android:showAsAction="ifRoom"
         android:title="@string/action_register"/>

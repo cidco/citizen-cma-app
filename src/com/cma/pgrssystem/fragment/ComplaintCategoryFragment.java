@@ -1,22 +1,27 @@
 package com.cma.pgrssystem.fragment;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
 import org.holoeverywhere.widget.AdapterView;
 import org.holoeverywhere.widget.AdapterView.OnItemSelectedListener;
 import org.holoeverywhere.widget.ArrayAdapter;
 import org.holoeverywhere.widget.ListView;
+import org.holoeverywhere.widget.RadioButton;
 import org.holoeverywhere.widget.Spinner;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ListAdapter;
+import android.widget.AdapterView.OnItemClickListener;
 
 import com.actionbarsherlock.app.SherlockFragment;
 import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuInflater;
 import com.actionbarsherlock.view.MenuItem;
 import com.cma.pgrssystem.R;
+import com.cma.pgrssystem.adapter.CategoryTypeAdapter;
 
 import de.keyboardsurfer.android.widget.crouton.Crouton;
 import de.keyboardsurfer.android.widget.crouton.Style;
@@ -24,9 +29,9 @@ import de.keyboardsurfer.android.widget.crouton.Style;
 public class ComplaintCategoryFragment extends SherlockFragment {
 
 	private View categoryView = null;
-	private Spinner spinner;
-	private ListView compListView;
-	private ListAdapter compListAdapter;
+	private Spinner spinnerCategory;
+	private ListView listviewForCategory;
+	private CategoryTypeAdapter adapter;
 	private int choice = 0;
 	private String[] engArr = { "New Street Light",
 			"Non Burining Street Light", "ManHole Covering" };
@@ -40,46 +45,36 @@ public class ComplaintCategoryFragment extends SherlockFragment {
 			"Broken bins", "Garbage Spilling Lorry" };
 
 	private void initComplaintList(int ch) {
-		compListView = (ListView) categoryView.findViewById(R.id.complaint);
-		ArrayAdapter<String> adapter;
-
+		
 		switch (ch) {
 		case 0:
-			adapter = new ArrayAdapter<String>(getActivity(),
-					android.R.layout.activity_list_item, android.R.id.text1,
-					generalArr);
+			adapter = new CategoryTypeAdapter(getActivity(),
+					Arrays.asList(generalArr));
 			break;
 		case 1:
-			adapter = new ArrayAdapter<String>(getActivity(),
-					android.R.layout.activity_list_item, android.R.id.text1,
-					healthArr);
+			adapter = new CategoryTypeAdapter(getActivity(),
+					Arrays.asList(healthArr));
 			break;
 		case 2:
-			adapter = new ArrayAdapter<String>(getActivity(),
-					android.R.layout.activity_list_item, android.R.id.text1,
-					engArr);
+			adapter = new CategoryTypeAdapter(getActivity(),
+					Arrays.asList(engArr));
 			break;
 		case 3:
-			adapter = new ArrayAdapter<String>(getActivity(),
-					android.R.layout.activity_list_item, android.R.id.text1,
-					revArr);
-			break;
+			adapter = new CategoryTypeAdapter(getActivity(),
+					Arrays.asList(revArr));
 		case 4:
-			adapter = new ArrayAdapter<String>(getActivity(),
-					android.R.layout.activity_list_item, android.R.id.text1,
-					swArr);
+			adapter = new CategoryTypeAdapter(getActivity(),
+					Arrays.asList(swArr));
 			break;
 		default:
-			adapter = new ArrayAdapter<String>(getActivity(),
-					android.R.layout.activity_list_item, android.R.id.text1,
-					generalArr);
+			adapter = new CategoryTypeAdapter(getActivity(),
+					Arrays.asList(generalArr));
 		}
-		compListView.setAdapter(adapter);
+		listviewForCategory.setAdapter(adapter);
 
 	}
 
 	private void initCatSpinner() {
-		spinner = (Spinner) categoryView.findViewById(R.id.category_spinner);
 		// Create an ArrayAdapter using the string array and a default spinner
 		// layout
 		ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(
@@ -88,8 +83,8 @@ public class ComplaintCategoryFragment extends SherlockFragment {
 		// Specify the layout to use when the list of choices appears
 		adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 		// Apply the adapter to the spinner
-		spinner.setAdapter(adapter);
-		spinner.setOnItemSelectedListener(new OnItemSelectedListener() {
+		spinnerCategory.setAdapter(adapter);
+		spinnerCategory.setOnItemSelectedListener(new OnItemSelectedListener() {
 
 			@Override
 			public void onItemSelected(AdapterView<?> arg0, View arg1,
@@ -117,6 +112,24 @@ public class ComplaintCategoryFragment extends SherlockFragment {
 
 		categoryView = inflater.inflate(R.layout.fragment_complaint_category,
 				container, false);
+		listviewForCategory = (ListView) categoryView
+				.findViewById(R.id.list_category_types);
+		listviewForCategory.setOnItemClickListener(new OnItemClickListener() {
+
+			@Override
+			public void onItemClick(android.widget.AdapterView<?> arg0,
+					View arg1, int arg2, long arg3) {
+				RadioButton radio = (RadioButton) arg1
+						.findViewById(R.id.radio_select_category_row);
+				radio.setChecked(true);
+
+			}
+			
+
+		});
+		spinnerCategory = (Spinner) categoryView
+				.findViewById(R.id.spinner_category_type);
+
 		initCatSpinner();
 		initComplaintList(0);
 		return categoryView;

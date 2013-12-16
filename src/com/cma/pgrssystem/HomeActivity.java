@@ -1,12 +1,22 @@
 package com.cma.pgrssystem;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
 import org.holoeverywhere.widget.ListView;
 
+import android.content.ComponentName;
+import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.content.pm.ResolveInfo;
 import android.content.res.Configuration;
+import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
+import android.os.Environment;
+import android.os.Parcelable;
+import android.provider.MediaStore;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
@@ -26,6 +36,7 @@ import com.cma.pgrssystem.fragment.StatusFragment;
 import com.cma.pgrssystem.listener.AsyncTaskCallBack;
 import com.cma.pgrssystem.listener.OnDrawerMenuListener;
 import com.cma.pgrssystem.util.PgrsConstants;
+import com.cma.pgrssystem.util.PgrsHelper;
 import com.sherlock.navigationdrawer.compat.SherlockActionBarDrawerToggle;
 
 import de.keyboardsurfer.android.widget.crouton.Crouton;
@@ -45,6 +56,69 @@ public class HomeActivity extends BaseActivity implements AsyncTaskCallBack,
 	private SherlockActionBarDrawerToggle mDrawerToggle;
 	private DrawerLayout mDrawerLayout;
 	private ActionBar mActionBar;
+	private Uri outputFileUri = null;
+	
+	public void invokeSelectPhotosAction() {
+
+		// Determine Uri of camera image to save.
+		final File root = new File(Environment.getExternalStorageDirectory()
+				+ File.separator + PgrsConstants.DIRECTORY_CAMERA_IMAGE
+				+ File.separator);
+		root.mkdirs();
+		final String fname = PgrsHelper.getInstance()
+				.getUniqueImageFilename();
+		final File sdImageMainDirectory = new File(root, fname);
+		outputFileUri = Uri.fromFile(sdImageMainDirectory);
+
+		// Camera.
+		final List<Intent> cameraIntents = new ArrayList<Intent>();
+		final Intent captureIntent = new Intent(
+				android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
+		final PackageManager packageManager = getPackageManager();
+		final List<ResolveInfo> listCam = packageManager.queryIntentActivities(
+				captureIntent, 0);
+		for (ResolveInfo res : listCam) {
+			final String packageName = res.activityInfo.packageName;
+			final Intent intent = new Intent(captureIntent);
+			intent.setComponent(new ComponentName(res.activityInfo.packageName,
+					res.activityInfo.name));
+			intent.setPackage(packageName);
+			intent.putExtra(MediaStore.EXTRA_OUTPUT, outputFileUri);
+			cameraIntents.add(intent);
+		}
+
+		// Filesystem.
+		Intent galleryIntent = null;
+		if (Build.VERSION.SDK_INT < 19) {
+			galleryIntent = new Intent();
+			galleryIntent.setType("image/*");
+			galleryIntent.setAction(Intent.ACTION_GET_CONTENT);
+
+		} else {
+
+			galleryIntent = new Intent(
+					Intent.ACTION_PICK,
+					android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+		}
+
+		// Set Common Flags to Gallery Intent
+		if (Build.VERSION.SDK_INT > Build.VERSION_CODES.GINGERBREAD_MR1) {
+			galleryIntent.putExtra(Intent.EXTRA_LOCAL_ONLY, true);
+		}
+		galleryIntent.putExtra(Intent.CATEGORY_OPENABLE, true);
+
+		// Chooser of filesystem options.
+		final Intent chooserIntent = Intent.createChooser(galleryIntent,
+				PgrsConstants.INTENT_TITLE_PICK_PHOTOS);
+
+		// Add the camera options.
+		chooserIntent.putExtra(Intent.EXTRA_INITIAL_INTENTS,
+				cameraIntents.toArray(new Parcelable[] {}));
+
+		startActivityForResult(chooserIntent,
+				PgrsConstants.REQUEST_CODE_PICK_PICTURES_FOR_COMPLAINTS);
+	}
+
 
 	@Override
 	protected void onDestroy() {

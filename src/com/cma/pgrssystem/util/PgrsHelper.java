@@ -30,6 +30,12 @@ public class PgrsHelper {
 		return sInstance;
 	}
 
+	public String getUniqueImageFilename() {
+		return new StringBuffer().append(PgrsConstants.PREFIX_IMAGE)
+				.append(System.currentTimeMillis())
+				.append(PgrsConstants.SUFFIX_JPG_FILE_EXTENSION).toString();
+	}
+
 	public boolean isOnline(Activity activity) {
 		ConnectivityManager connectivityManager = (ConnectivityManager) activity
 				.getSystemService(Context.CONNECTIVITY_SERVICE);

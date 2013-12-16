@@ -17,6 +17,7 @@ import de.keyboardsurfer.android.widget.crouton.Style;
 
 public class ComplaintReviewFragment extends SherlockFragment {
 	
+	private View reviewView = null;
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -26,9 +27,9 @@ public class ComplaintReviewFragment extends SherlockFragment {
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
-		TextView tx = new TextView(getActivity());
-		tx.setText("Review");
-		return tx;
+		
+		reviewView = inflater.inflate(R.layout.fragment_complaint_review, container, false);
+		return reviewView;
 		
 	}
 	

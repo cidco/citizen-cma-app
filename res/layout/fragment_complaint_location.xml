@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+    
+        <org.holoeverywhere.widget.TextView
+        android:id="@+id/textview_location_header"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="10dp"
+        android:text="Complaint Location"
+        android:textAppearance="@style/Holo.TextAppearance.Large.Light"
+        android:textColor="@color/holo_blue_light"
+        android:textStyle="bold" />
+
+    <org.holoeverywhere.widget.TextView
+        android:id="@+id/textview_location_area"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textview_location_header"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:text="Area"
+        android:textAppearance="@style/Holo.TextAppearance.Medium.Light"
+        android:textStyle="bold" />
+
+    <org.holoeverywhere.widget.Spinner
+        android:id="@+id/spinner_location_area"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textview_location_area"
+        android:layout_centerVertical="true"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp" />
+
+    <org.holoeverywhere.widget.TextView
+        android:id="@+id/textview_location_locality"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/spinner_location_area"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="10dp"
+        android:text="Locality"
+        android:textAppearance="@style/Holo.TextAppearance.Medium.Light"
+        android:textStyle="bold" />
+
+    <org.holoeverywhere.widget.Spinner
+        android:id="@+id/spinner_location_locality"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textview_location_locality"
+        android:layout_centerVertical="true"
+         android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp" />
+
+    <org.holoeverywhere.widget.TextView
+        android:id="@+id/textview_location_street"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/spinner_location_locality"
+         android:layout_marginTop="10dp"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="10dp"
+        android:text="Street"
+        android:textAppearance="@style/Holo.TextAppearance.Medium.Light"
+        android:textStyle="bold" />
+
+    <org.holoeverywhere.widget.Spinner
+        android:id="@+id/spinner_location_street"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textview_location_street"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="10dp" />
+    
+        <org.holoeverywhere.widget.TextView
+        android:id="@+id/textview_location_specific_location"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/spinner_location_street"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="10dp"
+         android:layout_marginTop="10dp"
+        android:text="Specific Location"
+        android:textAppearance="@style/Holo.TextAppearance.Medium.Light"
+        android:textStyle="bold" />
+        
+            <org.holoeverywhere.widget.EditText
+        android:id="@+id/edittext_location_specific_location"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textview_location_specific_location"
+        android:layout_margin="8dp"
+        android:background="@drawable/bg_complaint_details"
+        android:gravity="top"
+        android:hint=""
+        android:imeOptions="actionNext"
+        android:inputType="textNoSuggestions"
+        android:maxLength="400"
+        android:maxLines="4"
+        android:minHeight="100dp"
+        android:minLines="3"
+        android:padding="5dp" />
+
+</RelativeLayout>

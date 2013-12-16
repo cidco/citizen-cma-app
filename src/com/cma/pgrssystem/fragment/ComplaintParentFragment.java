@@ -15,6 +15,7 @@ import com.actionbarsherlock.app.SherlockFragment;
 import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuInflater;
 import com.actionbarsherlock.view.MenuItem;
+import com.cma.pgrssystem.HomeActivity;
 import com.cma.pgrssystem.R;
 import com.cma.pgrssystem.adapter.ComplaintsFragmentPagerAdapter;
 import com.viewpagerindicator.PageIndicator;
@@ -81,9 +82,11 @@ public class ComplaintParentFragment extends SherlockFragment {
 			@Override
 			public void onPageSelected(int position) {
 				indicator.setCurrentItem(position);
+				
 				switch (position) {
-
 				case 0:
+					break;
+				case 1:
 					break;
 				default:
 					break;
@@ -104,6 +107,7 @@ public class ComplaintParentFragment extends SherlockFragment {
 	@Override
 	public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
 		super.onCreateOptionsMenu(menu, inflater);
+		inflater.inflate(R.menu.menu_complaints_details, menu);
 	}
 
 	@Override
@@ -115,6 +119,11 @@ public class ComplaintParentFragment extends SherlockFragment {
 
 		if (item.getItemId() == R.id.action_licenses) {
 			Crouton.showText(getActivity(), "Licenses", Style.INFO);
+			return true;
+		}
+		
+		if (item.getItemId() == R.id.action_camera_complaints) {
+			((HomeActivity)getActivity()).invokeSelectPhotosAction();
 			return true;
 		}
 		return super.onOptionsItemSelected(item);

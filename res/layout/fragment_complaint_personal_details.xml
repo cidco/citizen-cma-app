@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <org.holoeverywhere.widget.TextView
+        android:id="@+id/textview_personal_header"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="10dp"
+        android:text="Personal Details"
+        android:textAppearance="@style/Holo.TextAppearance.Large.Light"
+        android:textColor="@color/holo_blue_light"
+        android:textStyle="bold" />
+
+    <org.holoeverywhere.widget.EditText
+        android:id="@+id/edittext_personal_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textview_personal_header"
+        android:layout_margin="8dp"
+        android:gravity="top"
+        android:hint="Full Name"
+        android:imeOptions="actionNext"
+        android:inputType="textPersonName"
+        android:padding="5dp" />
+
+    <org.holoeverywhere.widget.EditText
+        android:id="@+id/edittext_personal_mobile"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/edittext_personal_name"
+        android:layout_margin="8dp"
+        android:gravity="top"
+        android:hint="Mobile"
+        android:imeOptions="actionNext"
+        android:inputType="number"
+        android:padding="5dp" />
+
+    <org.holoeverywhere.widget.EditText
+        android:id="@+id/edittext_personal_email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/edittext_personal_mobile"
+        android:layout_margin="8dp"
+        android:gravity="top"
+        android:hint="Email"
+        android:imeOptions="actionNext"
+        android:inputType="textEmailAddress"
+        android:padding="5dp" />
+
+    <org.holoeverywhere.widget.EditText
+        android:id="@+id/edittext_personal_address"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/edittext_personal_email"
+        android:layout_margin="8dp"
+        android:gravity="top"
+        android:hint="Address"
+        android:imeOptions="actionNext"
+        android:inputType="textEmailAddress"
+        android:maxLines="4"
+        android:minHeight="80dp"
+        android:minLines="3"
+        android:padding="5dp" />
+
+    <org.holoeverywhere.widget.EditText
+        android:id="@+id/edittext_personal_pincode"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/edittext_personal_address"
+        android:layout_margin="8dp"
+        android:gravity="top"
+        android:hint="Pincode"
+        android:imeOptions="actionNext"
+        android:inputType="number"
+        android:padding="5dp" />
+
+</RelativeLayout>

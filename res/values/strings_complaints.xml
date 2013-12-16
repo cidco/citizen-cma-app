@@ -2,11 +2,13 @@
 <resources>
 
     <string name="label_complaint_title">Complaint Title</string>
-    <string name="hint_complaint_title">Dog Menace</string>
+    <string name="hint_complaint_title">Voter Id Issue</string>
     <string name="hint_complaint_details">Max 400 Charaters</string>
     <string name="content_desc_complaint_photo">Photo for upload</string>
     <string name="button_upload_photo">Upload Photo</string>
     <string name="action_camera">Upload Photo</string>
+    
+    <string name="label_category_type">Category Type</string>
     
     <string-array name="category_array">
         <item>General</item>

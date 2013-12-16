@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <org.holoeverywhere.widget.TextView
+        android:id="@+id/textview_review_header"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="10dp"
+        android:text="Review"
+        android:textAppearance="@style/Holo.TextAppearance.Large.Light"
+        android:textColor="@color/holo_blue_light"
+        android:textStyle="bold" />
+
+    <org.holoeverywhere.widget.TextView
+        android:id="@+id/textview_complaint_title_review"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textview_review_header"
+        android:layout_margin="8dp"
+        android:text="Voter Id Issue"
+        android:textAppearance="@style/Holo.TextAppearance.Medium.Light"
+        android:textStyle="normal" />
+
+    <org.holoeverywhere.widget.TextView
+        android:id="@+id/textview_complaint_details_review"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textview_complaint_title_review"
+        android:layout_margin="8dp"
+        android:text="Voter Id has wrong date of birth"
+        android:textAppearance="@style/Holo.TextAppearance.Medium.Light"
+        android:textStyle="normal" />
+
+    <org.holoeverywhere.widget.TextView
+        android:id="@+id/textview_complaint_location_review"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textview_complaint_details_review"
+        android:layout_margin="8dp"
+        android:text="T-Nagar, Chennai"
+        android:textAppearance="@style/Holo.TextAppearance.Medium.Light"
+        android:textStyle="normal" />
+
+    <org.holoeverywhere.widget.TextView
+        android:id="@+id/textview_complaint_personal_review"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textview_complaint_location_review"
+        android:layout_margin="8dp"
+        android:text="Madhusudhan S, 9962545949, sudhans@gmail.com, Q44 Arihant Heirloom, Thalambur, Chennai, 603103"
+        android:textAppearance="@style/Holo.TextAppearance.Medium.Light"
+        android:textStyle="normal" />
+
+    <org.holoeverywhere.widget.Button
+        android:id="@+id/button_submit_review"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="20dp"
+        android:contentDescription="Submit"
+        android:padding="10dp"
+        android:text="Submit" />
+
+</RelativeLayout>
